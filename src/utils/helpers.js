@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const baseURL = 'https://forum-express-api.herokuapp.com/api'
+const baseURL = 'https://nameless-inlet-21529.herokuapp.com/'
 
 const axiosInstance = axios.create({
   baseURL
@@ -23,7 +23,14 @@ axiosInstance.interceptors.request.use(
 export const apiHelper = axiosInstance
 export const Toast = Swal.mixin({
   toast: true,
-  position: 'top-end',
+  position: 'bottom-end',
+  showConfirmButton: false,
+  timer: 3000
+})
+export const ToastBottom = Swal.mixin({
+  background: '#ffcccc',
+  toast: true,
+  position: 'bottom-end',
   showConfirmButton: false,
   timer: 3000
 })
