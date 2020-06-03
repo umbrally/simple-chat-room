@@ -11,7 +11,7 @@
               <div
                 :class="[msg.UserId===currentUser.id? 'justify-content-end, flex-row-reverse': 'justify-content-start', 'row']"
               >
-                <div class="col-2">
+                <div class="col-3 col-md-2 text-center">
                   <img :src="msg.User.image | emptyImage" class="img-thumbnail" />
                 </div>
                 <div class="col-8">
