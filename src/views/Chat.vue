@@ -11,10 +11,10 @@
               <div
                 :class="[msg.UserId===currentUser.id? 'justify-content-end, flex-row-reverse': 'justify-content-start', 'row']"
               >
-                <div class="col-md-2">
+                <div class="col-2">
                   <img :src="msg.User.image | emptyImage" class="img-thumbnail" />
                 </div>
-                <div class="col-md-8">
+                <div class="col-8">
                   <template v-if="msg.UserId===currentUser.id">
                     <div class="text-right">{{msg.User.name}}</div>
                     <div class="mt-2 text-right">
