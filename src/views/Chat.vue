@@ -1,43 +1,63 @@
 <template>
   <div class="v-container mb-2 main-content">
     <div class="row justify-content-center">
-      <div class="border border-primary rounded w-50" style="min-height: 400px">
-        <ul v-if="msgs.length>0" class="list-group">
-          <li v-for="msg in msgs" :key="msg.id" class="list-group-item border-0">
-            <div
-              :class="[msg.UserId===currentUser.id? 'justify-content-end, flex-row-reverse': 'justify-content-start', 'row']"
-            >
-              <div class="col-md-2">
-                <img :src="msg.User.image | emptyImage" class="img-thumbnail" />
+      <v-col cols="10" md="6">
+        <div
+          class="border border-primary rounded"
+          style="min-height: 400px; max-height: 450px;overflow: scroll "
+        >
+          <ul v-if="msgs.length>0" class="list-group">
+            <li v-for="msg in msgs" :key="msg.id" class="list-group-item border-0">
+              <div
+                :class="[msg.UserId===currentUser.id? 'justify-content-end, flex-row-reverse': 'justify-content-start', 'row']"
+              >
+                <div class="col-md-2">
+                  <img :src="msg.User.image | emptyImage" class="img-thumbnail" />
+                </div>
+                <div class="col-md-8">
+                  <template v-if="msg.UserId===currentUser.id">
+                    <div class="text-right">{{msg.User.name}}</div>
+                    <div class="mt-2 text-right">
+                      <span class="text-muted mr-2">{{ msg.createdAt | fromNow}}</span>
+                      <span class="p-2 speech-bubble-self">{{msg.content}}</span>
+                    </div>
+                  </template>
+                  <template v-else>
+                    <div>{{msg.User.name}}</div>
+                    <div class="mt-2">
+                      <span class="p-2 speech-bubble">{{msg.content}}</span>
+                      <span class="text-muted ml-2">{{ msg.createdAt | fromNow}}</span>
+                    </div>
+                  </template>
+                </div>
               </div>
-              <div class="col-md-8">
-                <template v-if="msg.UserId===currentUser.id">
-                  <div class="text-right">{{msg.User.name}}</div>
-                  <div class="mt-2 text-right">
-                    <span class="text-muted mr-2">{{ msg.createdAt | fromNow}}</span>
-                    <span class="p-2 speech-bubble-self">{{msg.content}}</span>
-                  </div>
-                </template>
-                <template v-else>
-                  <div>{{msg.User.name}}</div>
-                  <div class="mt-2">
-                    <span class="p-2 speech-bubble">{{msg.content}}</span>
-                    <span class="text-muted ml-2">{{ msg.createdAt | fromNow}}</span>
-                  </div>
-                </template>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+            </li>
+          </ul>
+        </div>
+      </v-col>
     </div>
     <div class="row justify-content-center mt-3">
-      <div id="send-box" class="w-50">
-        <form id="send-form" @keyup.enter="sendMessage" @submit.stop.prevent="sendMessage">
-          <v-text-field name="msg" id="msg" placeholder="說點什麼？" v-model="newMsg" required outlined></v-text-field>
-          <button type="submit" class="btn btn-primary" :disabled="!newMsg">送出</button>
-        </form>
-      </div>
+      <v-col cols="10" md="6">
+        <div id="send-box">
+          <form id="send-form" @keyup.enter="sendMessage" @submit.stop.prevent="sendMessage">
+            <v-row no-gutters>
+              <v-col cols="12" md="10">
+                <v-text-field
+                  name="msg"
+                  id="msg"
+                  placeholder="說點什麼？"
+                  v-model="newMsg"
+                  required
+                  outlined
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="2" class="text-center">
+                <button type="submit" class="btn btn-primary" :disabled="!newMsg">送出</button>
+              </v-col>
+            </v-row>
+          </form>
+        </div>
+      </v-col>
     </div>
   </div>
 </template>

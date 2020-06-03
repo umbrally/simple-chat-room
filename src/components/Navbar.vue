@@ -20,7 +20,7 @@
         <template v-if="isAuthenticated">
           <v-chip
             v-scroll="scrollHandle"
-            class="mt-2 mr-4"
+            class="mt-1 mr-4"
             :style="isScroll? denseClass: largeClass"
             color="primary"
             label
@@ -51,8 +51,8 @@ export default {
     return {
       onlineCount: 0,
       isScroll: false,
-      denseClass: { position: "fixed", top: "56px" },
-      largeClass: { position: "fixed", top: "128px" }
+      denseClass: { position: "fixed", top: "55px" },
+      largeClass: { position: "fixed", top: "127px" }
     };
   },
 

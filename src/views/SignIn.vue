@@ -2,52 +2,54 @@
   <v-container fluid class="main-content p-0">
     <v-row justify="center" no-gutters class="side-banner" align="center">
       <v-overlay :absolute="true" z-index="0"></v-overlay>
-      <v-card width="40%" elevation="5" class="p-3" outlined>
-        <form class="w-100" @submit.prevent.stop="handleSubmit">
-          <div class="text-center mb-4">
-            <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
-          </div>
+      <v-col cols="10" sm="5" xs="5">
+        <v-card elevation="5" class="p-3 mx-auto" outlined>
+          <form class="w-100" @submit.prevent.stop="handleSubmit">
+            <div class="text-center mb-4">
+              <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
+            </div>
 
-          <div class="form-label-group mb-2">
-            <label for="email">email</label>
-            <input
-              id="email"
-              v-model="email"
-              name="email"
-              type="email"
-              class="form-control"
-              placeholder="email"
-              required
-              autofocus
-            />
-          </div>
+            <div class="form-label-group mb-2">
+              <label for="email">email</label>
+              <input
+                id="email"
+                v-model="email"
+                name="email"
+                type="email"
+                class="form-control"
+                placeholder="email"
+                required
+                autofocus
+              />
+            </div>
 
-          <div class="form-label-group mb-3">
-            <label for="password">Password</label>
-            <input
-              id="password"
-              v-model="password"
-              name="password"
-              type="password"
-              class="form-control"
-              placeholder="Password"
-              required
-            />
-          </div>
+            <div class="form-label-group mb-3">
+              <label for="password">Password</label>
+              <input
+                id="password"
+                v-model="password"
+                name="password"
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                required
+              />
+            </div>
 
-          <button
-            class="btn btn-lg btn-primary btn-block mb-3"
-            type="submit"
-            :disabled="isProcessing"
-          >Submit</button>
+            <button
+              class="btn btn-lg btn-primary btn-block mb-3"
+              type="submit"
+              :disabled="isProcessing"
+            >Submit</button>
 
-          <div class="text-center mb-3">
-            <p>
-              <router-link to="/signup">Sign Up</router-link>
-            </p>
-          </div>
-        </form>
-      </v-card>
+            <div class="text-center mb-3">
+              <p>
+                <router-link to="/signup">Sign Up</router-link>
+              </p>
+            </div>
+          </form>
+        </v-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>

@@ -1,4 +1,4 @@
-# chat_room_vue
+# simple-chat-room-vue
 
 ## Project setup
 ```
